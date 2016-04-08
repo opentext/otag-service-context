@@ -21,6 +21,8 @@
         within an AppWorks service if asked to do so.
     </description>
 
+    <url>https://github.com/opentext/otag-service-context</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
