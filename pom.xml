@@ -85,7 +85,7 @@
                 <artifactId>sca-maven-plugin</artifactId>
                 <version>4.40</version>
                 <configuration>
-                    <projectName>awg-tomcat-listener</projectName>
+                    <projectName>awg-service-context</projectName>
                 </configuration>
             </plugin>
 
