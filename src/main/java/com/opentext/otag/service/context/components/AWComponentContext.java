@@ -75,9 +75,12 @@ public class AWComponentContext {
     @SuppressWarnings("unchecked")
     public static <T extends AWComponent> List<T> getComponents(Class<T> type) {
         Collection<? extends AWComponent> components = getComponents();
-        List<AWComponent> returnList = components.stream()
-                .filter(type::isInstance)
-                .collect(Collectors.toList());
+        List<AWComponent> returnList = new ArrayList<>();
+
+        for (AWComponent component : components) {
+            if (type.isInstance(component))
+                returnList.add(component);
+        }
 
         return (List<T>) returnList;
     }
