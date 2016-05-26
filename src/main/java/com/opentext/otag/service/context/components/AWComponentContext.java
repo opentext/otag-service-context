@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * AppWorks Component Context:
@@ -20,7 +21,7 @@ import java.util.*;
  * in the host containers own /lib directory.
  *
  * @author Rhys Evans rhyse@opentext.com
- * @version 16.0.0
+ * @version 16.0.1
  */
 public class AWComponentContext {
 
@@ -74,12 +75,9 @@ public class AWComponentContext {
     @SuppressWarnings("unchecked")
     public static <T extends AWComponent> List<T> getComponents(Class<T> type) {
         Collection<? extends AWComponent> components = getComponents();
-        List<AWComponent> returnList = new ArrayList<>();
-
-        for (AWComponent component : components) {
-            if (type.isInstance(component))
-                returnList.add(component);
-        }
+        List<AWComponent> returnList = components.stream()
+                .filter(type::isInstance)
+                .collect(Collectors.toList());
 
         return (List<T>) returnList;
     }

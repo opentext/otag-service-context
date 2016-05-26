@@ -24,11 +24,11 @@ import java.io.InputStream;
  * Gateway to identify requests from the app/service.
  *
  * @author Rhys Evans rhyse@opentext.com
- * @version 16.0.0
+ * @version 16.0.1
  */
 public class AWConfig {
 
-    public static final Logger LOG = LoggerFactory.getLogger(AWConfig.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AWConfig.class);
 
     public static final String APP_NAME = "appName";
     public static final String APP_KEY = "appKey";

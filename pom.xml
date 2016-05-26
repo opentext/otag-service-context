@@ -7,7 +7,7 @@
 
     <groupId>com.opentext.otag.service.context</groupId>
     <artifactId>otag-service-context</artifactId>
-    <version>16</version>
+    <version>16.0.1</version>
     <packaging>jar</packaging>
 
     <name>OpenText AppWorks Gateway services context tools</name>
