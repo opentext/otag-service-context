@@ -19,7 +19,7 @@ package com.opentext.otag.service.context.components;
  * service at runtime.
  *
  * @author Rhys Evans rhyse@opentext.com
- * @version 16.0.1
+ * @version 16.0.1.1
  */
 public interface AWComponent {
 

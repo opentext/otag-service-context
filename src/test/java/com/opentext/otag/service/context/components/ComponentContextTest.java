@@ -23,7 +23,8 @@ public class ComponentContextTest {
         try {
             AWComponentContext.add(null);
             fail("Expected NPE");
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            assertThat(e.getMessage()).isEqualTo("We cannot add null references to the component context");
         }
 
         assertThat(AWComponentContext.add(new MyComponentOne())).isTrue();
@@ -47,7 +48,7 @@ public class ComponentContextTest {
         // test getComponents
         AtomicInteger myTypeCount = new AtomicInteger(0);
         // ensure that we can detect instances of the base class
-        AWComponentContext.getComponents().stream().forEach((c) -> {
+        AWComponentContext.getComponents().forEach((c) -> {
             if (c instanceof MyComponentOne) myTypeCount.incrementAndGet();
         });
         assertThat(myTypeCount.get()).isEqualTo(2);
