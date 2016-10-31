@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
  * is unexpected.
  *
  * @author Rhys Evans rhyse@opentext.com
- * @version 16.0.1.1
+ * @version 16.1
  *
  * @see AWComponentContext#getComponent(Class)
  */
