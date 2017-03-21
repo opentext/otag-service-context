@@ -8,7 +8,7 @@ package com.opentext.otag.service.context;
  * construct instance of {@link AWConfig}.
  *
  * @author Rhys Evans rhyse@opentext.com
- * @version 16.1
+ * @version 16.2
  *
  * @see AWConfig
  */
