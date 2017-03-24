@@ -24,7 +24,7 @@ import java.io.InputStream;
  * Gateway to identify requests from the app/service.
  *
  * @author Rhys Evans rhyse@opentext.com
- * @version 16.1
+ * @version 16.2
  */
 public class AWConfig {
 
@@ -33,7 +33,7 @@ public class AWConfig {
     public static final String APP_NAME = "appName";
     public static final String APP_KEY = "appKey";
     public static final String MANAGING_OTAG_URL = "otagUrl";
-    public static final String DEPLOYMENT_TYPE = "type";
+    public static final String DEPLOYMENT_TYPE = "types";
     public static final String SERVICE_TYPE = "service";
     public static final String EIM_CONNECTOR_TYPE = "eimconnector";
 
@@ -42,7 +42,7 @@ public class AWConfig {
     private String appName;
     private String appKey;
     private String gatewayUrl;
-    private String type;
+    private String types;
 
     /**
      * Construct an AppWorks config loader for an app with the name provided.
@@ -66,10 +66,10 @@ public class AWConfig {
 
     public boolean isService() {
         try {
-            return SERVICE_TYPE.equals(type) || EIM_CONNECTOR_TYPE.equals(type);
+            return SERVICE_TYPE.contains(types) || EIM_CONNECTOR_TYPE.contains(types);
         } catch (Exception e) {
             throw new RuntimeException("We must be able to resolve the deployments " +
-                    "type to allow it to start! Missing \"type\" in management properties");
+                    "types to allow it to start! Missing \"types\" in management properties");
         }
     }
 
@@ -100,7 +100,7 @@ public class AWConfig {
                             gatewayUrl = val;
                             break;
                         case DEPLOYMENT_TYPE:
-                            type = val;
+                            types = val;
                             break;
                         default:
                     }
