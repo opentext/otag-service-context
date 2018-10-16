@@ -31,6 +31,7 @@ public class AWConfig {
     private static final Logger LOG = LoggerFactory.getLogger(AWConfig.class);
 
     public static final String APP_NAME = "appName";
+    public static final String PERSISTENCE_CONTEXT = "persistenceContext";
     public static final String APP_KEY = "appKey";
     public static final String MANAGING_OTAG_URL = "otagUrl";
     public static final String DEPLOYMENT_TYPE = "types";
@@ -40,6 +41,7 @@ public class AWConfig {
     public static final String WEB_XML_LOCATION = "../web.xml";
 
     private String appName;
+    private String persistenceContext;
     private String appKey;
     private String gatewayUrl;
     private String types;
@@ -54,6 +56,10 @@ public class AWConfig {
 
     public String getAppName() {
         return appName;
+    }
+
+    public String getPersistenceContext() {
+        return persistenceContext;
     }
 
     public String getAppKey() {
@@ -92,6 +98,9 @@ public class AWConfig {
                     switch (name) {
                         case APP_NAME:
                             appName = val;
+                            break;
+                        case PERSISTENCE_CONTEXT:
+                            persistenceContext = val;
                             break;
                         case APP_KEY:
                             appKey = val;
