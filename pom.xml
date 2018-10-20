@@ -7,7 +7,7 @@
 
     <groupId>com.opentext.otag.service.context</groupId>
     <artifactId>otag-service-context</artifactId>
-    <version>16.3.0</version>
+    <version>16.5.0</version>
     <packaging>jar</packaging>
 
     <name>OpenText AppWorks Gateway services context tools</name>
@@ -33,6 +33,7 @@
         </fortify.results.file>
         <fortify.log.file>${project.build.directory}/fortify-code-analysis/sca-scan.log</fortify.log.file>
         <fortify.source>1.8</fortify.source>
+        <nexus.base.url>http://appworks-re1.lab.opentext.com:8082/nexus</nexus.base.url>
     </properties>
 
     <profiles>
@@ -260,5 +261,19 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>deployment</id>
+            <name>Internal Releases</name>
+            <url>${nexus.base.url}/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>deployment</id>
+            <name>Internal Releases</name>
+            <url>${nexus.base.url}/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 
 </project>
